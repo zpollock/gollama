@@ -1,0 +1,14 @@
+version: '3.8'
+
+services:
+  web:
+    build: .
+    env_file:
+      - .env
+    ports:
+      - "${PORT}:${PORT}"
+    volumes:
+      - .:/usr/src/app
+      - ${LLAMA_MODEL_PATH}:/usr/src/app/chat/models
+    command: >
+      sh -c '(/usr/src/app/chat/llama.cpp/${LLAMA_CPP_SERVER} -m /usr/src/app/chat/models/${LLAMA_MODEL} &) && (go run cmd/main.go -port=${PORT})'
