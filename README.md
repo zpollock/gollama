@@ -7,7 +7,7 @@ This project provides a simple and easy-to-deploy API wrapper around the llama.c
 Before you begin, ensure you have the following prerequisites:
 
 - Docker installed on your machine.
-- Download a llama model in bin format.
+- Obtain a local llama model in bin format.
 
 ## Getting Started
 
@@ -57,7 +57,7 @@ curl --request POST \
      --data '{
        "messages": [
          {
-           "role": "user",
+           "role": "USER",
            "content": "What is the secret of your success?"
          }
        ],
