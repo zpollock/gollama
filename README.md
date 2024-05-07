@@ -7,7 +7,8 @@ This project provides a simple and easy-to-deploy API wrapper around the llama.c
 Before you begin, ensure you have the following prerequisites:
 
 - Docker installed on your machine.
-- Obtain a local llama model in bin format.
+- Docker Compose installed on your machine.
+- Obtain a local llama model in bin or gguf format.
 
 ## Getting Started
 
@@ -16,6 +17,7 @@ Before you begin, ensure you have the following prerequisites:
 Clone this Git repository to your local machine:
 
 git clone https://github.com/zpollock/gollama.git
+
 cd gollama
 
 
@@ -28,19 +30,26 @@ Configure the project by setting the necessary environment variables in the `.en
 - `LLAMA_CPP_SERVER`: The URL of the llama.cpp server.
 - `PORT`: The port for the API
 
+**Get llama.cpp*:*
+
+Clone the llama.cpp into the gollama/chat folder:
+
+cd chat
+
+git clone https://github.com/ggerganov/llama.cpp.git
 
 **Build the Docker Container:**
 
 Build the Docker container using Docker Compose:
 
-docker compose build
+docker-compose build
 
 
 **Deploy the Container:**
 
 Run the Docker container using Docker Compose:
 
-docker compose up
+docker-compose up
 
 
 The Gin server and llama.cpp server will be started in the same container, and your API will be available at `http://127.0.0.1:<PORT>`.
